@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { collection, onSnapshot } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDNEc2V_DVZ5tQnnHY5wm3ovDmG_oLeYZ0",
@@ -27,7 +28,7 @@ export const signInWithGoogle = async () => {
         .where("uid", "==", user.uid)
         .get();
         if (query.docs.length === 0) {
-          await db.collection("users").add({
+          await db.collection("users").doc(user.uid).set({
             uid: user.uid,
             name: user.displayName,
             authProvider: "google",
@@ -44,3 +45,9 @@ export const signInWithGoogle = async () => {
 export const logout = () => {
     auth.signOut();
 };
+
+export const listenForCases = (userid, callback) => {
+    onSnapshot(collection(db, "users/" + userid + "/cases"), (querySnapshot) => {
+        callback(querySnapshot.docs.map(x => x.data()));
+    });
+}
