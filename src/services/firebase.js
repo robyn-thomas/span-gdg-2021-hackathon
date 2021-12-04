@@ -79,3 +79,11 @@ export const updateCaseData = async (userId, caseId, statusCode) => {
     status: statusCode
   });
 }
+
+export const updateCzzzaseData = async (userId, caseId, statusCode) => {
+  console.log(userId);
+  console.log(caseId);
+  db.collection("users").doc(userId).collection("cases").doc(caseId).update({
+    status: statusCode
+  });
+}
