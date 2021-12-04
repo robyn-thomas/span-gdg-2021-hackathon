@@ -45,7 +45,11 @@ export const logout = () => {
 
 export const listenForCases = (userid, callback) => {
   onSnapshot(collection(db, 'users/' + userid + '/cases'), (querySnapshot) => {
-    callback(querySnapshot.docs.map((x) => x.data()));
+    callback(querySnapshot.docs.map((x) => {
+      let caseData = x.data();
+      caseData.id = x.id;
+      return caseData
+    }));
   });
 };
 
@@ -65,5 +69,13 @@ export const updateUserData = async (userid, userData, callback) => {
     callback(true);
   }).catch(x => {
     callback(false);
+  });
+}
+
+export const updateCaseData = async (userId, caseId, statusCode) => {
+  console.log(userId);
+  console.log(caseId);
+  db.collection("users").doc(userId).collection("cases").doc(caseId).update({
+    status: statusCode
   });
 }

@@ -8,6 +8,7 @@ import Layout from '../components/layout';
 export default function Dashboard() {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState('');
+  const [userId, setUserID] = useState('');
   const [caseData, setCaseData] = useState([]);
   const navigate = useNavigate();
 
@@ -15,6 +16,7 @@ export default function Dashboard() {
     if (loading) return;
     if (!user) return navigate('/login');
     setName(user.displayName);
+    setUserID(user.uid);
     listenForCases(user.uid, (x) => setCaseData(x));
   }, [user, loading, navigate]);
 
@@ -33,7 +35,7 @@ export default function Dashboard() {
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <ul role="list" className="space-y-3 mt-6">
               {caseData.map((x, i) => (
-                <Case key={i} data={x} />
+                <Case key={i} data={x} userId={userId} />
               ))}
             </ul>
           </div>
