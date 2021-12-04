@@ -20,8 +20,6 @@ export default function Dashboard() {
 
   if (loading) return <div></div>;
 
-  caseData.push([{name: 'test name'}])
-
   return (
     <Layout>
       <div className="py-10">
