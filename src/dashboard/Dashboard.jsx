@@ -108,19 +108,25 @@ export default function Dashboard() {
             <h1 className={'text-3xl font-bold leading-tight text-gray-900 pt-6'}>
               PII Doxxing cases
             </h1>
-            <ul role="list" className="space-y-3 mt-6">
-              {[...caseData]
-                .filter((i) => {
-                  if(type==='ignored' && i.status === 'ignored'){
-                    return i;
-                  } else if (type==='open' && i.status === 'open'){
-                    return i
-                  } else {
-                      return i
-                  }
-                })
-                .map((x, i) => <Case key={i} data={x} userId={userId} />)}
-            </ul>
+            {caseData.length ? (
+              <ul role="list" className="space-y-3 mt-6">
+                {[...caseData]
+                  .filter((i) => {
+                    if (type === 'ignored' && i.status === 'ignored') {
+                      return i;
+                    } else if (type === 'open' && i.status === 'open') {
+                      return i;
+                    } else if (type === 'all' && (i.status === 'ignored' || i.status === 'open')) {
+                      return i;
+                    }
+                  })
+                  .map((x, i) => (
+                    <Case key={i} data={x} userId={userId} />
+                  ))}
+              </ul>
+            ) : (
+              <div>No cases</div>
+            )}
           </div>
         </main>
       </div>
