@@ -14,9 +14,9 @@ export default function Login() {
   return (
     <div className="login_panel">
       <div className="google-btn" onClick={signInWithGoogle}>
-        <p className="btn-text underline">
+        <button className="btn-text">
           <b>Sign in with google</b>
-        </p>
+        </button>
       </div>
     </div>
   );
