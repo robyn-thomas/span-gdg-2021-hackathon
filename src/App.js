@@ -1,7 +1,5 @@
 import './App.css';
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Login from './login/Login';
 import Dashboard from './dashboard/Dashboard';
@@ -9,14 +7,13 @@ import NotFound from './views/NotFound';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route exact path="/" element={<Dashboard />} />
+        <Route path="/" exact element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
-        <Route component={<NotFound/>}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
-
 export default App;

@@ -1,12 +1,8 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ');
-// }
 
 export default function Example() {
   return (
@@ -33,15 +29,9 @@ export default function Example() {
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <Link
               to={'/'}
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Sign in
-            </Link>
-            <Link
-              to={'/'}
               className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
             >
-              Sign up
+              Logout
             </Link>
           </div>
         </div>
@@ -80,16 +70,9 @@ export default function Example() {
             </div>
             <div className="py-6 px-5 space-y-6">
               <div>
-                <Link
-                 to={'/'}
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  Sign up
-                </Link>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{' '}
                   <Link to={'/'} className="text-indigo-600 hover:text-indigo-500">
-                    Sign in
+                    Logout
                   </Link>
                 </p>
               </div>
