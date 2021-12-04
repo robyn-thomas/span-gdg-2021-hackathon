@@ -1,17 +1,19 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 import Login from './login/Login';
 import Dashboard from './dashboard/Dashboard';
+import NotFound from './views/NotFound';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route exact path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="*" element={<Dashboard />} />
+        <Route component={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   );
