@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot, doc, getDoc, updateDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDNEc2V_DVZ5tQnnHY5wm3ovDmG_oLeYZ0',
@@ -48,3 +48,22 @@ export const listenForCases = (userid, callback) => {
     callback(querySnapshot.docs.map((x) => x.data()));
   });
 };
+
+export const getUserData = async (userid, callback) => {
+  const docRef = doc(db, "users", userid);
+  getDoc(docRef).then(docSnap => {
+    if (docSnap.exists()) {
+      callback(docSnap.data());
+    }
+  });
+}
+
+
+export const updateUserData = async (userid, userData, callback) => {
+  const docRef = doc(db, "users", userid);
+  updateDoc(docRef, userData).then(x=> {
+    callback(true);
+  }).catch(x => {
+    callback(false);
+  });
+}
