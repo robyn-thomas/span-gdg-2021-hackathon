@@ -1,18 +1,17 @@
 import { useCallback, useState } from 'react';
 import AccountItem from './AccountItem';
+import { addProfile } from '../services/piii'
 const AccountInfo = (props) => {
   const [display, setDisplay] = useState(false);
-  const onAddClick = useCallback(
+  const [twitter, setTwitter] = useState('')
+  useCallback(
     (e) => {
       e.preventDefault();
       setDisplay(!display);
     },
     [display]
   );
-  if (!props.userData.account) {
-    return null;
-  }
-  const hasAccounts = props.userData.account.length;
+  const hasAccounts = props.userData.account && props.userData.account.length;
 
   return (
     <div>
@@ -41,12 +40,14 @@ const AccountInfo = (props) => {
                 type="text"
                 name="account"
                 id="account"
+                onChange={x => setTwitter(x.target.value)}
                 className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="Account url"
               />
             </div>
             <div className="mt-1">
               <button
+                onClick={x => addProfile(props.userData.uid, twitter)}
                 className={
                   'whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
                 }

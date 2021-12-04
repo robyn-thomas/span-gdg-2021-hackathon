@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 import { logout } from '../services/firebase';
 
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function Example(props) {
   const { children } = props;

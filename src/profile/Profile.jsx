@@ -202,9 +202,7 @@ export default function Profile() {
                   </div>
                 </div>
                 {/* Accounts */}
-                <>
                 <AccountInfo userData={userData}/>
-                </>
               </div>
 
               <br />
