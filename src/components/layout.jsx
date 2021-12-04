@@ -16,9 +16,13 @@ export default function Example(props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-16">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <Link to={'/'}>
+              <Link to={'/'} className={"flex"}>
                 <span className="sr-only">Workflow</span>
                 <img className="h-6 w-auto sm:h-24" src="/PI3-logo.png" alt="" />
+                <h1 className="text-2xl ml-4 tracking-tight mt-8 font-extrabold text-center text-gray-900 sm:text-5xl md:text-xl">
+                  <span className="block xl:inline">PII </span>{' '}
+                  <span className="block text-indigo-600 xl:inline">Investigator</span>
+                </h1>
               </Link>
             </div>
 

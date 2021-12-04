@@ -15,7 +15,10 @@ export default function Login() {
     <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-2xl">
         <img className="mx-auto h-32 w-auto" src="/PI3-logo.png" alt="Workflow" />
-        <h1 className={"font-ibm text-3xl text-center pt-16"}>Personal Identifiable Information Investigator </h1>
+        <h1 className="text-2xl tracking-tight mt-8 font-extrabold text-center text-gray-900 sm:text-5xl md:text-4xl">
+          <span className="block xl:inline">Personal Identifiable Information</span> <br />
+          <span className="block text-indigo-600 xl:inline">Investigator</span>
+        </h1>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Sign in to your account
         </h2>
