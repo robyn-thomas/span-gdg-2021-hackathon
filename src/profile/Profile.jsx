@@ -26,12 +26,12 @@ export default function Profile() {
   return (
     <Layout>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 mt-8">
-        <div className={''}>
+        <>
           <h1 className="text-3xl font-bold leading-tight text-gray-900 pt-6">Profile</h1>
           <p className="mt-1 max-w-2xl text-sm text-gray-500">
             This information will be encrypted and kept safe.
           </p>
-        </div>
+        </>
         <form>
           <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
             <div>
@@ -65,17 +65,15 @@ export default function Profile() {
                       Email
                     </label>
                     <div className="mt-1 sm:mt-0 ">
-                  
-                        <input
-                          type="text"
-                          name="email"
-                          value={userData.email}
-                          onChange={(x) => setUserData({ ...userData, email: x.target.value })}
-                          id="email"
-                          autoComplete="given-name"
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        />
-                      
+                      <input
+                        type="text"
+                        name="email"
+                        value={userData.email}
+                        onChange={(x) => setUserData({ ...userData, email: x.target.value })}
+                        id="email"
+                        autoComplete="given-name"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
                     </div>
                   </div>
                 </div>
@@ -202,9 +200,14 @@ export default function Profile() {
                     </div>
                   </div>
                 </div>
+                {/* Accounts */}
+                <>
+                  <h1 className="text-3xl font-bold leading-tight text-gray-900 pt-6">Accounts</h1>
+                </>
               </div>
 
               <br />
+
               <div className={'flex justify-end content-end'}>
                 {!updating ? (
                   <button
