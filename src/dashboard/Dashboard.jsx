@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth, listenForCases } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Case from './Case';
-import Example from '../components/layout';
+import Layout from '../components/layout';
 
 export default function Dashboard() {
   const [user, loading] = useAuthState(auth);
@@ -20,14 +20,27 @@ export default function Dashboard() {
 
   if (loading) return <div></div>;
 
+  caseData.push([{name: 'test name'}])
+
   return (
-    <Example>
-      <div>
-        <h1>Hello {name}</h1>
-        {caseData.map((x, i) => (
-          <Case key={i} data={x} />
-        ))}
+    <Layout>
+      <div className="py-10">
+        <header>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-2xl mx-auto text-gray-400">Hello {name}</h1>
+            <h1 className="text-3xl font-bold leading-tight text-gray-900 pt-6">Dashboard</h1>
+          </div>
+        </header>
+        <main>
+          <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <ul role="list" className="space-y-3 mt-6">
+              {caseData.map((x, i) => (
+                <Case key={i} data={x} />
+              ))}
+            </ul>
+          </div>
+        </main>
       </div>
-    </Example>
+    </Layout>
   );
 }
