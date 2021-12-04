@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, logout, listenForCases } from '../services/firebase';
+import { auth, listenForCases } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Case from './Case';
 import Example from '../components/layout';
@@ -24,7 +24,6 @@ export default function Dashboard() {
     <Example>
       <div>
         <h1>Hello {name}</h1>
-        <button onClick={logout}> logout </button>
         {caseData.map((x, i) => (
           <Case key={i} data={x} />
         ))}
