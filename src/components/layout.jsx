@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
+import { logout } from '../services/firebase';
 
 export default function Example(props) {
   const { children } = props;
@@ -25,12 +26,12 @@ export default function Example(props) {
             </div>
 
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-              <Link
-                to={'/'}
+            <button
+              onClick={logout}
                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
               >
                 Logout
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -65,9 +66,9 @@ export default function Example(props) {
               <div className="py-6 px-5 space-y-6">
                 <div>
                   <p className="mt-6 text-center text-base font-medium text-gray-500">
-                    <Link to={'/'} className="text-indigo-600 hover:text-indigo-500">
+                    <button onClick={logout} className="text-indigo-600 hover:text-indigo-500">
                       Logout
-                    </Link>
+                    </button>
                   </p>
                 </div>
               </div>

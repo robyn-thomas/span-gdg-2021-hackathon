@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, logout, listenForCases } from '../services/firebase';
+import { auth, listenForCases } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Case from './Case';
 import Layout from '../components/layout';
@@ -19,8 +19,6 @@ export default function Dashboard() {
   }, [user, loading, navigate]);
 
   if (loading) return <div></div>;
-
-  caseData.push([{name: 'test name'}])
 
   return (
     <Layout>
