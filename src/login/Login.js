@@ -12,11 +12,30 @@ export default function Login() {
   }, [user, loading, navigate]);
 
   return (
-    <div className="login_panel">
-      <div className="google-btn" onClick={signInWithGoogle}>
-        <button className="btn-text">
-          <b>Sign in with google</b>
-        </button>
+    <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-2xl">
+        <img className="mx-auto h-32 w-auto" src="/PI3-logo.png" alt="Workflow" />
+        <h1 className={"font-ibm text-3xl text-center pt-16"}>Personal Identifiable Information Investigator </h1>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Sign in to your account
+        </h2>
+      </div>
+
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md mt-20">
+        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <form className="space-y-6" action="#" method="POST">
+            <div>
+              <div className="google-btn" onClick={signInWithGoogle}>
+                <p
+                  type="text"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  <b>Sign in with Google</b>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
