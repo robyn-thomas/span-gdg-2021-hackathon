@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { auth, getUserData, updateUserData } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Layout from '../components/layout';
+import AccountInfo from '../components/Accounts';
+
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
@@ -22,7 +24,6 @@ export default function Profile() {
     setUpdating(true);
     updateUserData(userData.uid, userData, (x) => setUpdating(false));
   };
-
   return (
     <Layout>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 mt-8">
@@ -202,7 +203,7 @@ export default function Profile() {
                 </div>
                 {/* Accounts */}
                 <>
-                  <h1 className="text-3xl font-bold leading-tight text-gray-900 pt-6">Accounts</h1>
+                <AccountInfo userData={userData}/>
                 </>
               </div>
 
