@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth, logout, listenForCases } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Case from './Case';
+import Example from '../components/layout';
 
 export default function Dashboard() {
   const [user, loading] = useAuthState(auth);
@@ -20,12 +21,14 @@ export default function Dashboard() {
   if (loading) return <div></div>;
 
   return (
-    <div>
-      <h1>Hello {name}</h1>
-      <button onClick={logout}> logout </button>
-      {caseData.map((x, i) => (
-        <Case key={i} data={x} />
-      ))}
-    </div>
+    <Example>
+      <div>
+        <h1>Hello {name}</h1>
+        <button onClick={logout}> logout </button>
+        {caseData.map((x, i) => (
+          <Case key={i} data={x} />
+        ))}
+      </div>
+    </Example>
   );
 }
