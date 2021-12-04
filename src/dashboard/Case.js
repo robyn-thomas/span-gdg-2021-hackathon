@@ -47,7 +47,7 @@ export default function Case(props) {
     return (
       <div className={'flex flex-col content-start'}>
         <div className="flex">
-          <b>Link:</b>{' '}
+          <b>Link:</b>
           <Link
             to="#"
             className={'ml-3 underline'}
@@ -56,7 +56,6 @@ export default function Case(props) {
               e.preventDefault();
             }}
           >
-            {' '}
             {props.data.link}
           </Link>
         </div>
