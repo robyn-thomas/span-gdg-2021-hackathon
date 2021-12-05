@@ -7,7 +7,6 @@ export default function Case(props) {
     data: { link }
   } = props;
   const isEmail = validateEmail(link);
-  console.log(props);
 
   const reportButton = () => {
     let linkComponent = '';

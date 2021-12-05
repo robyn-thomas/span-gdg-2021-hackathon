@@ -29,7 +29,7 @@ export default function Dashboard() {
         <div className="relative flex flex-row items-start">
           <div className="flex items-center h-5">
             <input
-              onClick={() => setType('open')}
+              onChange={() => setType('open')}
               id="open"
               aria-describedby="comments-description"
               name="open"
@@ -50,7 +50,7 @@ export default function Dashboard() {
         <div className="relative flex items-start">
           <div className="flex items-center h-5">
             <input
-              onClick={() => setType('ignored')}
+              onChange={() => setType('ignored')}
               id="ignored"
               aria-describedby="candidates-description"
               name="ignored"
@@ -71,7 +71,7 @@ export default function Dashboard() {
         <div className="relative flex items-start">
           <div className="flex items-center h-5">
             <input
-              onClick={() => setType('all')}
+              onChange={() => setType('all')}
               id="all"
               checked={type === 'all'}
               aria-describedby="offers-description"
@@ -109,7 +109,7 @@ export default function Dashboard() {
               PII Doxxing cases
             </h1>
             {caseData.length ? (
-              <ul role="list" className="space-y-3 mt-6">
+              <ul className="space-y-3 mt-6">
                 {[...caseData]
                   .filter((i) => {
                     if (type === 'ignored' && i.status === 'ignored') {

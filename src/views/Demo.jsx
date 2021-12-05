@@ -2,7 +2,7 @@
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-
+import { Link } from 'react-router-dom';
 export default function Demo() {
   return (
     <div className="relative bg-gray-50 overflow-hidden">
@@ -114,12 +114,7 @@ export default function Demo() {
                   </div>
                 </div>
                 <div className="px-2 pt-2 pb-3"></div>
-                <a
-                  href="#"
-                  className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
-                >
-                  Log in
-                </a>
+               
               </div>
             </Popover.Panel>
           </Transition>
@@ -137,12 +132,12 @@ export default function Demo() {
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                 >
                   Live Demo
-                </a>
+                </Link>
               </div>
             </div>
           </div>
