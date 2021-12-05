@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { updateCaseData } from '../services/firebase';
 import cx from 'classnames';
 export default function Case(props) {
-  const { link = 'https://twitter.com' } = props;
+  const {
+    data: { link }
+  } = props;
   const isEmail = validateEmail(link);
+  console.log(props);
 
   const reportButton = () => {
     let linkComponent = '';
