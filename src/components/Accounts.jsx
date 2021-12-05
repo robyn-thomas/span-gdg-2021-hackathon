@@ -3,7 +3,7 @@ import AccountItem from './AccountItem';
 import { addProfile } from '../services/piii'
 const AccountInfo = (props) => {
   const [display, setDisplay] = useState(false);
-  const [twitter, setTwitter] = useState('')
+  const [twitter, setTwitter] = useState('');
   useCallback(
     (e) => {
       e.preventDefault();
@@ -33,7 +33,7 @@ const AccountInfo = (props) => {
         <form className={'mt-8 w-2/4'}>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Account Url
+              Account username
             </label>
             <div className="mt-1">
               <input
@@ -42,18 +42,18 @@ const AccountInfo = (props) => {
                 id="account"
                 onChange={x => setTwitter(x.target.value)}
                 className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="Account url"
+                placeholder="Account username"
               />
             </div>
             <div className="mt-1">
-              <button
+              <p
                 onClick={x => addProfile(props.userData.uid, twitter)}
                 className={
-                  'whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+                  'cursor-pointer whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
                 }
               >
                 Add Account
-              </button>
+              </p>
             </div>
           </div>
         </form>
