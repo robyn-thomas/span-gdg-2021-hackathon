@@ -12,6 +12,8 @@ export default function Profile() {
   const [updating, setUpdating] = useState(false);
   const navigate = useNavigate();
 
+  console.log(userData);
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate('/login');
