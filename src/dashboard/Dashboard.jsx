@@ -85,7 +85,7 @@ export default function Dashboard() {
               All
             </label>
             <p id="offers-description" className="text-gray-500">
-              List of all cases found
+              List of all cases found.
             </p>
           </div>
         </div>

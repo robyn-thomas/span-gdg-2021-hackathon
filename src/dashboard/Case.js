@@ -45,7 +45,7 @@ export default function Case(props) {
 
   const getDetails = () => {
     return (
-      <div className={'flex flex-col content-start'}>
+      <div className={'flex flex-col content-start md:space-y-2'}>
         <div className="flex">
           <b>Link:</b>
           <Link
@@ -60,7 +60,15 @@ export default function Case(props) {
           </Link>
         </div>
         <div>
-          <span className={cx("inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium cursor-default", props.data.status === 'open' ? 'bg-red-100 text-red-800': 'bg-green-100 text-green-800' )}>
+          <label>Status</label>
+          <span
+            className={cx(
+              'inline-flex ml-2 items-center px-2.5 py-0.5 rounded-full text-md font-medium cursor-default',
+              props.data.status === 'open'
+                ? 'bg-red-100 text-red-800'
+                : 'bg-green-100 text-green-800'
+            )}
+          >
             {props.data.status}
           </span>
         </div>
@@ -73,7 +81,9 @@ export default function Case(props) {
         <button
           onClick={() => updateCaseData(props.userId, props.data.id, 'ignored')}
           type="button"
-          className={"h-10 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"}
+          className={
+            'h-10 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+          }
         >
           Ignore
         </button>
