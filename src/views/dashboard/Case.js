@@ -1,6 +1,6 @@
-import { validateEmail } from '../utils/helpers';
+import { validateEmail } from '../../utils/helpers';
 import { Link } from 'react-router-dom';
-import { updateCaseData } from '../services/firebase';
+import { updateCaseData } from '../../services/firebase';
 import cx from 'classnames';
 export default function Case(props) {
   const {

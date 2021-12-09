@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, getUserData, updateUserData } from '../services/firebase';
+import { auth, getUserData, updateUserData } from '../../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Layout from '../components/layout';
-import AccountInfo from '../components/Accounts';
+import Layout from '../../components/Layout';
+import AccountInfo from '../../components/Accounts';
+import Spinner from '../../components/spinner';
 
 
 export default function Profile() {
+
   const [user, loading] = useAuthState(auth);
   const [userData, setUserData] = useState({});
   const [updating, setUpdating] = useState(false);
   const navigate = useNavigate();
 
-  console.log(userData);
 
   useEffect(() => {
     if (loading) return;
@@ -203,24 +204,25 @@ export default function Profile() {
                     </div>
                   </div>
                 </div>
+                <div className={'flex justify-start content-center'}>
+                {!updating ? (
+                  <button
+                    onClick={submitData}
+                    className="whitespace-nowrap text-sm inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  >
+                    Update
+                  </button>
+                ) : (
+                  <Spinner/>
+                )}
+              </div>
                 {/* Accounts */}
                 <AccountInfo userData={userData}/>
               </div>
 
               <br />
 
-              <div className={'flex justify-end content-end'}>
-                {!updating ? (
-                  <button
-                    onClick={submitData}
-                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Update
-                  </button>
-                ) : (
-                  <p> Busy updating </p>
-                )}
-              </div>
+              
             </div>
           </div>
         </form>

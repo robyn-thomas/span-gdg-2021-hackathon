@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Login from './login/Login';
-import Dashboard from './dashboard/Dashboard';
-import Profile from './profile/Profile';
+
+import Dashboard from './views/dashboard/Dashboard';
+import Profile from './views/profile/Profile';
+import Login from './views/login/Login';
 import NotFound from './views/NotFound';
 import Demo from './views/Demo'
 

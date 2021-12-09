@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, listenForCases } from '../services/firebase';
+import { auth, listenForCases } from '../../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Case from './Case';
-import Layout from '../components/layout';
+import Layout from '../../components/Layout';
 
 export default function Dashboard() {
   const [user, loading] = useAuthState(auth);

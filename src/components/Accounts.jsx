@@ -2,8 +2,10 @@ import { useCallback, useState } from 'react';
 import AccountItem from './AccountItem';
 import { addProfile } from '../services/piii'
 const AccountInfo = (props) => {
+
   const [display, setDisplay] = useState(false);
   const [twitter, setTwitter] = useState('');
+
   useCallback(
     (e) => {
       e.preventDefault();
@@ -11,10 +13,11 @@ const AccountInfo = (props) => {
     },
     [display]
   );
+
   const hasAccounts = props.userData.account && props.userData.account.length;
 
   return (
-    <div>
+    <div className={"border-t-2 border-gray-100 pt-1"}>
       <div>
         <h3 className="text-3xl leading-6 font-medium mt-12 text-gray-900">
           Applicant Information
@@ -24,7 +27,7 @@ const AccountInfo = (props) => {
 
       <p className={'mt-1 max-w-2xl text-md text-gray-500 mt-2'}>
         {!hasAccounts ? (
-          <div>No accounts linked add an account</div>
+          <div className={"text-indigo-600"}>No accounts linked <b>add an account</b></div>
         ) : (
           props.userData.account.map((acc) => <AccountItem accountItem={acc} />)
         )}
@@ -49,7 +52,7 @@ const AccountInfo = (props) => {
               <p
                 onClick={x => addProfile(props.userData.uid, twitter)}
                 className={
-                  'cursor-pointer whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+                  'mt-4 cursor-pointer whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
                 }
               >
                 Add Account
