@@ -4,6 +4,7 @@ import { auth, listenForCases } from '../../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Case from './Case';
 import Layout from '../../components/Layout';
+import SkeletonLoader from '../../components/SkeltonLoader';
 
 export default function Dashboard() {
   const [user, loading] = useAuthState(auth);
@@ -11,6 +12,7 @@ export default function Dashboard() {
   const [type, setType] = useState('open');
   const [userId, setUserID] = useState('');
   const [caseData, setCaseData] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +23,6 @@ export default function Dashboard() {
     listenForCases(user.uid, (x) => setCaseData(x));
   }, [user, loading, navigate]);
 
-  if (loading) return <div></div>;
   const getCheckboxes = () => {
     return (
       <fieldset className="space-y-5">
@@ -108,7 +109,13 @@ export default function Dashboard() {
             <h1 className={'text-3xl font-bold leading-tight text-gray-900 pt-6'}>
               PII Doxxing cases
             </h1>
-            {caseData.length ? (
+            {loading ? (
+              <>
+                <SkeletonLoader />
+                <SkeletonLoader />
+                <SkeletonLoader />
+              </>
+            ) : caseData.length ? (
               <ul className="space-y-3 mt-6">
                 {[...caseData]
                   .filter((i) => {
@@ -125,7 +132,7 @@ export default function Dashboard() {
                   ))}
               </ul>
             ) : (
-              <div>No cases</div>
+              <div className={'text-indigo-500'}>No cases</div>
             )}
           </div>
         </main>

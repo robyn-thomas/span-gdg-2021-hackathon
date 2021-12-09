@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import Toaster from 'react-hot-toast';
 
 import Dashboard from './views/dashboard/Dashboard';
 import Profile from './views/profile/Profile';
@@ -10,6 +10,8 @@ import Demo from './views/Demo'
 
 function App() {
   return (
+    <>
+    <div><Toaster/></div>
     <Router>
       <Routes>
         <Route path="/" exact element={<Dashboard />} />
@@ -19,6 +21,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
+    </>
   );
 }
 export default App;

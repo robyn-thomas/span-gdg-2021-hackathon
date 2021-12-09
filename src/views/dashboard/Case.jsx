@@ -79,7 +79,7 @@ export default function Case(props) {
   };
   const getActions = () => {
     return (
-      <div className={'button-wrapper flex space-between w-62 space-x-3 md:space-x-6'}>
+      <div className={'button-wrapper flex space-between w-62 space-x-3 md:space-x-6 items-center'}>
         <button
           onClick={() => updateCaseData(props.userId, props.data.id, 'ignored')}
           type="button"
@@ -96,9 +96,9 @@ export default function Case(props) {
   return (
     <li
       key={props.link}
-      className="bg-white shadow overflow-hidden px-4 py-4 sm:px-4 sm:rounded-md md: h-20"
+      className="bg-white shadow overflow-hidden p-4 sm:px-4 sm:rounded-md md: h-22"
     >
-      <div className={'flex justify-between'}>
+      <div className={'flex justify-between content-center'}>
         {getDetails()}
         {getActions()}
       </div>

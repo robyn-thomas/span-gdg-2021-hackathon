@@ -1,4 +1,5 @@
 import axios from 'axios'
+import toast from 'react-hot-toast';
 
 export const addProfile = (userId, twitterId) => {
     axios.get('localhost:8080/twitter/add_profile/'+userId+'/' + twitterId)  
@@ -7,6 +8,7 @@ export const addProfile = (userId, twitterId) => {
     })
     .catch(function (error) {
         console.log(error);
+        
     })
     axios.get('localhost:8080/twitter/scan/'+userId+'/' + twitterId)  
     .then(function (response) {
