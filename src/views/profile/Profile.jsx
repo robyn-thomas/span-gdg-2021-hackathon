@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Layout from '../../components/Layout';
 import AccountInfo from '../../components/Accounts';
 import Spinner from '../../components/spinner';
-
+import Toaster from 'react-hot-toast';
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
   const [userData, setUserData] = useState({});
@@ -26,6 +26,7 @@ export default function Profile() {
   };
   return (
     <Layout>
+      <Toaster/>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 mt-8">
         <>
           <h1 className="text-3xl font-bold leading-tight text-gray-900 pt-6">Profile</h1>
