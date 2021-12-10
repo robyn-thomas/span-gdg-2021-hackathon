@@ -6,14 +6,11 @@ import Layout from '../../components/Layout';
 import AccountInfo from '../../components/Accounts';
 import Spinner from '../../components/spinner';
 
-
 export default function Profile() {
-
   const [user, loading] = useAuthState(auth);
   const [userData, setUserData] = useState({});
   const [updating, setUpdating] = useState(false);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (loading) return;
@@ -205,27 +202,24 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className={'flex justify-start content-center'}>
-                {!updating ? (
-                  <button
-                    onClick={submitData}
-                    className="whitespace-nowrap text-sm inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Update
-                  </button>
-                ) : (
-                  <Spinner/>
-                )}
-              </div>
-                {/* Accounts */}
-                <AccountInfo userData={userData}/>
+                  {!updating ? (
+                    <button
+                      onClick={submitData}
+                      className="whitespace-nowrap text-sm inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                    >
+                      Update
+                    </button>
+                  ) : (
+                    <Spinner />
+                  )}
+                </div>
               </div>
 
               <br />
-
-              
             </div>
           </div>
         </form>
+        <AccountInfo userData={userData} />
       </div>
     </Layout>
   );
