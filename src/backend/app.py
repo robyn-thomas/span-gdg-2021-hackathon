@@ -38,6 +38,7 @@ def scan_twitter(app_user, twitter_user):
                          "https://twitter.com/" + case['username'])
     return Response("{}", status=200, mimetype='application/json')
 
+
 @app.route("/twitter/add_profile/<app_user>/<twitter_handle>")
 @cross_origin()
 def link_twitter_profile(app_user, twitter_handle):
@@ -45,6 +46,7 @@ def link_twitter_profile(app_user, twitter_handle):
     user_account = user_account.json()
     lib.db.add_twitter_account(db_conn, app_user, user_account['data'])
     return user_account
+
 
 port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':
