@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  piii:
+    image: piii
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+  piii-backend:
+    image: piii-backend
+    build:
+      context: ./src/backend
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
