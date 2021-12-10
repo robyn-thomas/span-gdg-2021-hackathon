@@ -21,10 +21,11 @@ def add_cases(db, user, link):
         'status': 'open',
         'link': link
     })
-    
+
+
 def add_twitter_account(db, user, account_details):
     return db.collection("users").document(user).update({
-        'accounts': [{
+        'account': [{
             'type': 'twitter',
             'handle': account_details['username'],
             'displayName': account_details['name'],
